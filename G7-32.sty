@@ -1,4 +1,4 @@
-% This package designed and commented in russian utf-8 encoding.
+% This package designed and commented in russian koi8-r encoding.
 %
 % Лицензия GNU GPL v2 и совместимые
 %
@@ -18,23 +18,17 @@
 \newcommand\Referat{%реферат
  \chapter*{\CYRR\cyre\cyrf\cyre\cyrr\cyra\cyrt}%
 }
-\addto\captionsrussian{%содержание
- \def\contentsname{%
-  \CYRS\cyro\cyrd\cyre\cyrr\cyrzh\cyra\cyrn\cyri\cyre}%
-}
-\newenvironment{abstract}{%То же самое, только как у белых людей -- Коротков И.
- \Referat
-}{}
+%\addto\captionsrussian{%содержание
+% \def\contentsname{%
+%  \CYRS\CYRO\CYRD\CYRE\CYRR\CYRZH\CYRA\CYRN\CYRI\CYRE}%
+%}
 \newcommand\NormRefs{%нормативные ссылки
  \chapter*{\CYRN\cyro\cyrr\cyrm\cyra\cyrt\cyri\cyrv\cyrn\cyrery\cyre~%
            \cyrs\cyrs\cyrery\cyrl\cyrk\cyri}%
 }
-\newcommand\Defines{%глоссарий
- \chapter*{\CYRG\cyrl\cyro\cyrs\cyrs\cyra\cyrr\cyri\cyrishrt}%
+\newcommand\Defines{%определения
+ \chapter*{\CYRO\cyrp\cyrr\cyre\cyrd\cyre\cyrl\cyre\cyrn\cyri\cyrya}%
 }
-%\newcommand\Defines{%определения
-% \chapter*{\CYRO\cyrp\cyrr\cyre\cyrd\cyre\cyrl\cyre\cyrn\cyri\cyrya}%
-%}
 \newcommand\Abbreviations{%обозначения и сокращения
  \chapter*{\CYRO\cyrb\cyro\cyrz\cyrn\cyra\cyrch\cyre\cyrn\cyri\cyrya~\cyri~%
            \cyrs\cyro\cyrk\cyrr\cyra\cyrshch\cyre\cyrn\cyri\cyrya}%
@@ -53,34 +47,35 @@
 }
 
 %Элементы оформления титульной страницы
-\newcommand\Nir@UdkName{\CYRU\CYRD\CYRK}
+%\newcommand\Nir@UdkName{\CYRU\CYRD\CYRK}
 
-\newcommand\Nir@No{%
- \No~\cyrg\cyro\cyrs\cyrr\cyre\cyrg\cyri\cyrs\cyrt\cyrr\cyra\cyrc\cyri\cyri%
-}
+%\newcommand\Nir@No{%
+% \No~\cyrg\cyro\cyrs\cyrr\cyre\cyrg\cyri\cyrs\cyrt\cyrr\cyra\cyrc\cyri\cyri%
+%}
 
 \newcommand\Nir@Confirm{
  {\small\CYRU\CYRT\CYRV\CYRE\CYRR\CYRZH\CYRD\CYRA\CYRYU}%
 }
 
-\newcommand\Nir@InventarNo{
- \CYRI\cyrn\cyrv.~\No
-}
+%\newcommand\Nir@InventarNo{
+% \CYRI\cyrn\cyrv.~\No
+%}
 
-\newcommand\Nir@Otchet{{%
- \small\CYRO\CYRT\CYRCH\CYRYO\CYRT \\
- \CYRO{} \CYRN\CYRA\CYRU\CYRCH\CYRN\CYRO-%
- \CYRI\CYRS\CYRS\CYRL\CYRE\CYRD\CYRO\CYRV\CYRA\CYRT\CYRE\CYRL\CYRSFTSN\CYRS\CYRK\CYRO\CYRISHRT{} %
- \CYRR\CYRA\CYRB\CYRO\CYRT\CYRE%
-}}
+%\newcommand\Nir@Otchet{{%
+% \small\CYRO\CYRT\CYRCH\CYRYO\CYRT \\
+% \CYRO{} \CYRN\CYRA\CYRU\CYRCH\CYRN\CYRO-%
+% \CYRI\CYRS\CYRS\CYRL\CYRE\CYRD\CYRO\CYRV\CYRA\CYRT\CYRE\CYRL\CYRSFTSN\CYRS\CYRK\CYRO\CYRISHRT{} %
+% \CYRR\CYRA\CYRB\CYRO\CYRT\CYRE%
+%}}
 
-\newcommand\Nir@AnnOtchet{ %отчёт аннотационный!?
-}
+%\newcommand\Nir@AnnOtchet{ %отчёт аннотационный!?
+%}
 
-\newcommand\Nir@MainBegin{%
- \CYRR\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{} %
- \CYRN\CYRI\CYRR%
-}
+%\newcommand\Nir@MainBegin{%
+% \CYRR\cyru\cyrk\cyro\cyrv\cyro\cyrd\cyri\cyrt\cyre\cyrl\cyrsftsn{} %
+% \CYRN\CYRI\CYRR%
+%}
+\newcommand\Nir@MainBegin{Научный руководитель}
 
 \newcommand\Nir@OrgLongName{%
  \CYRP\cyro\cyrl\cyrn\cyro\cyre~
@@ -88,68 +83,97 @@
  \cyro\cyrr\cyrg\cyra\cyrn\cyri\cyrz\cyra\cyrc\cyri\cyri%
 }
 
-\newcommand\Nir@StageNo{ % номер этапа работ
-}
+%\newcommand\Nir@StageNo{ % номер этапа работ
+%}
 
-\newcommand\Nir@StageTitle{ % заголовок этапа работ
-}
-\newcommand\Nir@StageType{ % вид отчёта
-}
+%\newcommand\Nir@StageTitle{ % заголовок этапа работ
+%}
+%\newcommand\Nir@StageType{ % вид отчёта
+%}
 
+\newcommand\Nir@Work{\CYRI\cyrv\cyra\cyrn\cyro\cyrv}
 
-\newcommand\Nir@BossPost{%
- \CYRK\cyrt\cyro \newline
- \cyru\cyrt\cyrv\cyre\cyrr\cyrzh\cyrd\cyra\cyre\cyrt%
-}
+%\newcommand\Nir@BossPost{%
+% \CYRK\cyrt\cyro \newline
+% \cyru\cyrt\cyrv\cyre\cyrr\cyrzh\cyrd\cyra\cyre\cyrt%
+%}
 
-\newcommand\Nir@BossName{\CYRF.~\CYRI.~\CYRO}
+%\newcommand\Nir@BossName{\CYRF.~\CYRI.~\CYRO}
 \newcommand\Nir@Year{\the\year}
 \newcommand\Nir@Town{\CYRG\cyro\cyrr\cyro\cyrd}
-\newcommand\Nir@ManagerPost{%
- \cyrb\cyro\cyrl\cyrsftsn\cyrsh\cyro\cyrishrt{}
- \cyrn\cyra\cyrch\cyra\cyrl\cyrsftsn\cyrn\cyri\cyrk%
+\newcommand\Nir@ManagerPost{%Научный руководитель
 }
+\newcommand\Nir@Faculty{}
+\newcommand\Nir@Napr{}
+\newcommand\Nir@Kurs{}
+\newcommand\Nir@WorkerName{}
 
-\newcommand\Nir@ManagerName{\CYRI\cyrv\cyra\cyrn\cyro\cyrv}
+\Nir@WorkerName{}
+
+\newcommand\Nir@ManagerName{}
+
+\newcommand\Nir@Kafedra{}
 
 \newcommand\NirTitle[1]{
  \thispagestyle{empty}
- \begin{centering}
-  \linespread{1.1}\normalsize
-  {\Nir@OrgLongName}
+	
+\begin{center}
+	{\Nir@OrgLongName}\\
+	\vspace{8mm}
+		\textbf{\Nir@Kafedra}\\
+		\vfill
+		\textbf{\Nir@Work} \\
+		\center{\textbf{#1}}
+		\vfill
+\end{center}		
 
+  %\begin{tabular}{
+ % p{80mm}p{80mm}[]
+  %ccc
+  %}
+\noindent
+Работу выполнил   \hrulefill {  \Nir@WorkerName}
+\begin{center}\vspace{-5mm}\small{(Подпись, дата)}\end{center}
+
+\vspace{-5mm}
+Факультет\hrulefill,курс \hrulefill
+\\
+\vspace{-5mm} Направление\hrulefill
+
+	 
+\vspace{-5mm} \Nir@MainBegin 
+
+\vspace{-5mm} {доц.,канд.тех.наук} \hrulefill {  \Nir@ManagerName}
+\begin{center}\small{(Подпись, дата)}\end{center}
+
+\vspace{-5mm}
+Нормоконтролер{  }\hrulefill {  А.В. Харченко}
+\begin{center}\vspace{-5mm}\small{(Подпись, дата)}\end{center}
+  %\end{tabular}
   \vfill
-
-\Nir@AnnOtchet \Nir@Otchet
-
-  \vspace{8mm}
-  #1
-  \vspace{8mm}
-
-\Nir@StageNo~~\Nir@StageTitle
-
   \vfill
-  \begin{tabular}{p{80mm}p{80mm}}
-    \Nir@MainBegin, \newline
-    \Nir@ManagerPost
-   &
-    ~\newline\underline{~~~~~~~~~~~~~~~~~~~} \Nir@ManagerName \newline
-  \end{tabular}
-  \vfill
-  \vfill
+  \begin{center}
   \Nir@Town~\Nir@Year
+  \end{center}
+	
 
- \end{centering}
+
  \linespread{\Gost@LineSpread}\normalsize
 }
 
 %Эти команды нужно вызвать для корректного определения титульной страницы
-\newcommand\NirStage[3]{\renewcommand\Nir@StageNo{#1}\renewcommand\Nir@StageType{#2}\renewcommand\Nir@StageTitle{#3}}%%virens added: номер госрегистрации
-\newcommand\NirIsAnnotacion[1]{\renewcommand\Nir@AnnOtchet{#1}} %%Если отчёт аннотационный
+%\newcommand\NirStage[3]{\renewcommand\Nir@StageNo{#1}\renewcommand\Nir@StageType{#2}\renewcommand\Nir@StageTitle{#3}}%%virens added: номер госрегистрации
+%\newcommand\NirIsAnnotacion[1]{\renewcommand\Nir@AnnOtchet{#1}} %%Если отчёт аннотационный
 \newcommand\NirOrgLongName[1]{\renewcommand\Nir@OrgLongName{#1}}
-\newcommand\NirBoss[2]{\renewcommand\Nir@BossPost{#1}\renewcommand\Nir@BossName{#2}}
+%\newcommand\NirBoss[2]{\renewcommand\Nir@BossPost{#1}\renewcommand\Nir@BossName{#2}}
 \newcommand\NirYear[1]{\renewcommand\Nir@Year{#1}}
 \newcommand\NirManager[2]{\renewcommand\Nir@ManagerPost{#1}\renewcommand\Nir@ManagerName{#2}}
 \newcommand\NirTown[1]{\renewcommand\Nir@Town{#1}}%%virens added: указываем город написания отчёта
-\newcommand\NirUdk[1]{\renewcommand\Nir@UdkName{#1}}%%virens added: для изменения УДК в тексте документа
-\newcommand\NirGosNo[1]{\renewcommand\Nir@No{#1}}%%virens added: номер госрегистрации
+\newcommand\NirKafedra[1]{\renewcommand\Nir@Kafedra{#1}}
+\newcommand\NirWork[1]{\renewcommand\Nir@Work{#1}}
+\newcommand\NirWorkerInfo[4]{
+	\renewcommand\Nir@Faculty{#1}
+	\renewcommand\Nir@Napr{#2}
+	\renewcommand\Nir@Kurs{#3}
+	\renewcommand\Nir@WorkerName{#4}
+}

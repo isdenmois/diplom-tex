@@ -1,4 +1,4 @@
-% This package designed and commented in russian utf-8 encoding.
+% This package designed and commented in russian koi8-r encoding.
 %
 % Класс документов по ГОСТ 7.32-2001 "Отчёт о научно-исследовательской работе"
 % на основе ГОСТ 2.105-95
@@ -40,8 +40,8 @@
 \NeedsTeXFormat{LaTeX2e}[1995/12/01]
 \ProvidesClass{G7-32}[2003/07/01 v1.0 Non Standard LaTeX document class]
 
-\RequirePackage{G2-105}
-\RequirePackage[left=20mm,right=10mm,top=20mm,bottom=20mm,headsep=0pt]{geometry}
+\input{GostBase.clo}
+\RequirePackage[left=25mm,right=20mm,top=10mm,bottom=30mm,headsep=0pt]{geometry}
 \RequirePackage{G7-32}
 
 \endinput

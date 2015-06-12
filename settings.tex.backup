@@ -49,7 +49,7 @@
 }
 
 \newcommand{\ChapteR}[1]{
-	#1\addcontentsline{toc}{section}{#1}
+	\line{#1}\addcontentsline{toc}{section}{#1}
 	\vspace{8mm}
 }
 
