@@ -41,7 +41,7 @@
 \ProvidesClass{G7-32}[2003/07/01 v1.0 Non Standard LaTeX document class]
 
 \input{GostBase.clo}
-\RequirePackage[left=25mm,right=20mm,top=10mm,bottom=30mm,headsep=0pt]{geometry}
+\RequirePackage[left=25mm,right=20mm,top=20mm,bottom=30mm,headsep=0pt]{geometry}
 \RequirePackage{G7-32}
 
 \endinput

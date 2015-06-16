@@ -1,0 +1,11 @@
+<script type="text/template" id="resultTemplate">
+  <div class="jumbotron">
+    <div id="chart">
+    </div>
+    <div class="text-center btn-group-justified">
+      <% _.each(options, function(option) { %>
+	<span><b><% option.title %>: </b> <% option.value %></span>
+      <% }); %>
+    </div>
+  </div>
+</script>

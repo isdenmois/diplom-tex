@@ -7,57 +7,49 @@
 
 \usepackage{setspace}
 \onehalfspacing
-% \usepackage[onehalfspacing]{setspace}
 \usepackage[T2A]{fontenc} % кодировка шрифта
 \usepackage[russian,english]{babel}
 \usepackage{cyrtimes}
-%\usepackage{float,amsmath}
-%\usepackage{listings}
 %Отступы у страниц
 \usepackage{indentfirst}
 \renewcommand{\rmdefault}{ftm} % Times New Roman
 \setlength{\parindent}{10mm}
 \sloppy %переносить длинные слова
-%\usepackage[colorlinks=false]{hyperref}
-\renewcommand{\thesubsection}{\t\arabic{chapter}}
-%\newcommand{\Section}[1][2]{
-%	\section*{#1}\addcontentsline{toc}{section}{#2}
-%	\centering{#2}
-%}
-\newcommand{\Section}[1]{
-%	\vspace{4mm}
-	#1\addcontentsline{toc}{section}{#1}
-%	\vspace{4mm}
-	
+
+\renewcommand{\frontmatter}[1]{
+    \clearpage
+    \centerline{\MakeTextUppercase{#1}}
+    \addcontentsline{toc}{chapter}{#1}
+    \vspace{8mm}
 }
-\newcommand{\sEction}[1]{
-	\vspace{4mm}
-	\indent#1
-	\addcontentsline{toc}{section}{{~~}#1}
-	\vspace{4mm}
+\renewcommand{\backmatter}[2]{
+    \clearpage
+    \centerline{\MakeTextUppercase{#1}}
+    \centerline{#2}
+    \addcontentsline{toc}{chapter}{#1}
+    \vspace{8mm}
 }
-\newcommand{\SEction}[1]{
-	\vspace{4mm}
-	\indent#1
-	\addcontentsline{toc}{section}{{~~~~}#1}
-	\vspace{4mm}
+\newcommand\contentsname{\centerline{СОДЕРЖАНИЕ}{~~~}}
+\usepackage{listings}
+
+\lstdefinelanguage{JavaScript}{
+  keywords={break, case, catch, continue, debugger, default, delete, do, else, finally, for, function, if, in, instanceof, new, return, switch, this, throw, try, typeof, var, void, while, with},
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  sensitive=true
 }
 
-\newcommand{\Chapter}[1]{
-\clearpage
-\centerline{\MakeTextUppercase{#1}}\addcontentsline{toc}{section}{#1}
-\vspace{8mm}
+\lstset{ %
+  language=HTML,                 % выбор языка для подсветки (здесь это С)
+  basicstyle=\small, % размер и начертание шрифта для подсветки кода
+  extendedchars=\true,
+  showspaces=false,            % показывать или нет пробелы специальными отступами
+  showstringspaces=false,      % показывать или нет пробелы в строках
+  showtabs=false,             % показывать или нет табуляцию в строках
+  tabsize=2,                 % размер табуляции по умолчанию равен 2 пробелам
+  breaklines=true,           % автоматически переносить строки (да\нет)
+  breakatwhitespace=false, % переносить строки только если есть пробел
+%   frame=single
 }
-
-\newcommand{\ChapteR}[1]{
-	#1\addcontentsline{toc}{section}{#1}
-	\vspace{8mm}
-}
-
-\newcommand{\Intro}[1]{
-\centerline{#1}\addcontentsline{toc}{section}{#1}{\vspace{8mm}#1}
-\vspace{8mm}
-}
-%\newcommand\contentsname{\centerline{СОДЕРЖАНИЕ}{~~~}}
-%\renewcommand*{\thesection}{\arabic {section}}
-%\include{listings.inc}

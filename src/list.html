@@ -1,0 +1,9 @@
+<script type="text/template" id="listTemplate">
+  <li class="<%= completed == true ?  'completed' : '' %> issue-list-elem">
+    <% if (completed == true) { %>
+      <a href="#issue/<%= id %>"><%= name %></a>
+    <% } else { %>
+      <%= name %><
+    <% } %>
+  </li>
+/script>

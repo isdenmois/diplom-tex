@@ -2,12 +2,43 @@
 
 \begin{document}
 
+\setcounter{page}{2}
+% \renewcommand\contentsname{\centerline{СОДЕРЖАНИЕ\vspace{100mm}}{~~~}}
+\def\contentsname{СОДЕРЖАНИЕ\vspace{10mm}}
+\tableofcontents
+\clearpage
+
 \input{intro} % Введение
+
+\chapter{Постановка задачи}
+
+\input{adhoc}
 
 \input{chapter1}
 
 \input{chapter}
 
+\chapter{Выполнение поставленной задачи}
+
 \input{chapter2}
+
+\input{inference}
+
+\input{bibitem}
+
+\backmatter{Приложение А}{Код шаблонов и представлений}
+
+\lstset{ %
+  language=HTML,
+  basicstyle=\scriptsize
+}
+\centerline{Шаблон формы создания новой заявки}
+\lstinputlisting[language=HTML, label=lst:form]{src/form.html}
+
+\centerline{Шаблон списка заявок}
+\lstinputlisting[language=HTML, label=lst:list]{src/list.html}
+
+\centerline{Шаблон просмотра результата}
+\lstinputlisting[language=HTML, label=lst:result]{src/result.html}
 
 \end{document}
