@@ -1,0 +1,12 @@
+<div class="list-group">
+  <ol>
+    <li class="issue-list-elem" ng-repeat="issue in issues">
+      <a href="#/issue/{{issue.id}}" ng-if="issue.completed == true">
+        {{issue.name}}
+      </a>
+      <span ng-if="issue.completed != true" class="incomplete">
+        {{issue.name}}
+      </span>
+    </li>
+  </ol>
+</div>

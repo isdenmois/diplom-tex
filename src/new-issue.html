@@ -1,0 +1,16 @@
+<form id="new-issue" class="form-horizontal" ng-submit="addRequest()">
+  <fieldset>
+    <legend>Новое иследование</legend>
+      <label class="col-md-4" for="select-algo">Алгоритм</label>
+      <div class="col-md-8">
+        <select id="select-algo" ng-model="algorithm"
+          ng-options="algo.title for algo in algorithms"
+          name="select-algo" class="form-control"/>
+      </div>
+    <div class="form-group" ng-repeat="option in algorithm.options">
+      <label class="col-md-4" for="{{option.name}}">option.title</label>
+      <input type="{{option.type}}" ng-model="{{option.name}}"
+            name="{{option.name}}" value="{{option.value}}">
+    </div>
+  </fieldset>
+</form>

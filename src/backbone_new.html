@@ -1,0 +1,34 @@
+<script type="text/template" id="newIssledovanieTemplate">
+  <div><form id="new-issue" class="form-horizontal" >
+    <fieldset>
+    <legend>Новое иследование</legend>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="select-algorythm">Алгоритм</label>
+        <div class="col-md-8">
+      <select id="select-algorythm" name="select-algorythm" class="form-control">
+      <% _.each(options, function(option) { %>
+          <option value="<%= option.value %>">
+        <%= option.title %>
+          </option>
+      <% }); %>
+      </select>
+        </div>
+    </div>
+    <div id="algorythm-params">
+          <%= algorythm_params_list() %>
+    </div>
+    <div class="form-group">
+        <label class="col-md-4 control-label" for="button-get-values"></label>
+        <div class="col-md-8">
+      <button id="button-get-values" name="button-get-values" class="btn btn-info">
+          Отправить заявку
+      </button>
+      <button id="button-cancel" name="button-cancel" class="btn btn-danger">
+          Отмена
+      </button>
+        </div>
+    </div>
+    </fieldset>
+    </form>
+  </div>
+</script>
