@@ -43,8 +43,8 @@ npm run
 }
 \end{lstlisting}
 
-\subsection{Структура приложения}
-
+% \subsection{Структура приложения}
+% 
 В процессе реализации данного приложения была создана следующая структура каталогов, отображенная на рисунке \ref{angular_structure}. В каталогах \textit{bower\_components} и \textit{node\_modules} хранятся библиотеки, от которых зависит данный проект. Они обновляются автоматически при помощи утилит npm и bower.
 \begin{figure}[h]
 \center\includegraphics[width=0.4\textwidth]{angular_structure}
@@ -68,3 +68,112 @@ npm run
  \item directives.js. Модуль с реализованными дополнительными директивами: для построения графика и для вывода сообщений.
  \item services.js. Модуль, в котором реализованы различные сервисы для работы с данными: получение/отправка данных на сервис по протоколу SOAP, сервис для обработки сообщений пользователю и сервис для перевода машинных идентификаторов в формат, понятный человеку.
 \end{enumerate}
+
+\subsection{Точка входа, шаблоны и представления}
+
+Точкой входа в одностраничное приложение является файл \textit{index.html}. Это HTML страница, которая строится при помощи HTML приведенного ниже. Данный код также содержит некоторые ключевые angular директивы.
+\begin{lstlisting}[basicstyle=\scriptsize]
+<!doctype <!DOCTYPE html>
+<html ng-app="adhocApp">
+<head>
+  <meta charset="utf-8">
+  <title>Вероятностная система в модели AD-HOC сети</title>
+  <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="libs/jquery/dist/jquery.min.js"></script>
+  <script src="libs/easysoap/easysoap.js"></script>
+  <script src="libs/angular/angular.min.js"></script>
+  <script src="libs/angular-route/angular-route.min.js"></script>
+  <script src="libs/angular-resource/angular-resource.min.js"></script>
+</head>
+<body>
+
+ <div class="container">
+    <div class="row row-offcanvas row-offcanvas-right">
+      <div class="col-xs-12 col-sm-9" id="content">
+        <div ng-view></div>
+      </div>
+
+      <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+        <div class="list-group">
+          <a href="#new" class="list-group-item">Новое исследование</a>
+          <a href="#issue" class="list-group-item">Список проведенных исследований</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+<script src="js/app.js"></script>
+<script src="js/controllers.js"></script>
+<script src="js/services.js"></script>
+<script src="js/directives.js"></script>
+</body>
+</html> 
+\end{lstlisting}
+Директива ng-app используется как флаг, который сообщает Angular-у корневой элемент нашего приложения. Это позволяет определить всю HTML-страницу как Angular-приложение. При загрузке приложения происходит автоматическая инициализация при помощи директивы ngApp.
+
+В разделе \textit{head} определены сторонние библиотеки, без которых невозможна работа данного приложения. В разделе \textit{body} описывается основная структура приложения с использованием Twitter Bootstrap. Создается колоночный макет, состоящий из двух колонок: содержимое страницы и навигация.
+
+Отображение содержимого страницы происходит при помощи директивы ngView. После этапа инициализации приложения, Angular создаёт инжектор, который будет использован во всем приложении, подгружаются необходимые зависимости, и происходит компиляция DOM. И директива ngView позволяет включать в себя шаблон текущего представления. Это возможно потому, что Angular поддерживает частичные представления и это позволяет отлично отделять логику от представления.
+
+В Angular'е, представление (view) это проекция модели (model) через HTML-шаблон (template). Это означает, что всякий раз, когда модель изменяется, Angular обновляет соответствующие связывания (binding points), которые обновляют представление (view). Представление (view) строится Angular`ом из шаблона. Шаблоны для данного проекта помещены в каталог \textit{views} и подгружаются при необходимости. Шаблоны использовались те же, что и в приложении на Backbone.js и были адаптированы специально под AngularJS. Вместо шаблонизатора использовались определенные директивы, но сам стиль приложения остался тот же. Исходные коды шаблонов представлены в приложении А.
+
+\subsection{Маршрутизация и контроллеры}
+
+Все приложения в AngularJS создаются через модули. Модуль может зависеть от других, или быть одиночным. Модули служат контейнерами для разных разделов приложения, таким образом делая код пригодным для повторного использования. Для создания модуля применяется глобальный Object, пространство имен фреймворка, и метод module:
+\begin{lstlisting}
+var adhocApp = angular.module('adhocApp', [
+  'ngRoute',
+  'adhocControllers',
+  'adhocServices',
+  'adhocDirectives'
+]);
+\end{lstlisting}
+
+Первым параметром указывается название модуля, вторым аргументом идет список зависимостей модуля, которые также нужно подключить. Модули могут зависеть от других модулей, которые в свою очередь тоже могут иметь зависимости.
+Инициализация AngularJS приложения происходит автоматически, используя директиву ngApp. Затем инициализируется Инжектор, который будет использоваться для внедрения зависимости (dependency injection) в рамках создания приложения. Инжектор будет создавать корневую область видимости (root scope), которая станет контекстом для модели нашего приложения. Angular будет"компилировать DOM, начиная с корневого элемента ngApp, подготавливая найденные директивы и связывая директивы с соответствующими элементами\cite{angular:tutorial}.
+
+Маршруты в Angular задаются с помощью \$routeProvider'а, который предоставляет сервис \$route. Этот сервис позволяет легко связывать воедино контроллеры, шаблоны представления и текущий URL браузера:
+\begin{lstlisting}[basicstyle=\scriptsize]
+$routeProvider.
+  when('/issue', {
+    templateUrl: 'views/issue-list.html',
+    controller: 'IssueListController'
+  }).
+  when('/new', {
+    templateUrl: 'views/new-issue.html',
+    controller: 'AlgorithmController'
+  }).
+  when('/issue/:id', {
+    templateUrl: 'views/result.html',
+    controller: 'ResultController'
+  }).
+  otherwise({
+    redirectTo: '/issue'
+  });
+\end{lstlisting}
+
+Контроллер Angular сводит вместе бизнес-логику и логику представления. Контроллер принимает два аргумента – имя, по которому на него можно ссылаться, и функцию описывающее поведение контроллера:
+\begin{lstlisting}[basicstyle=\scriptsize]
+angular
+  .module('adhocControllers', [])
+  .controller('IssueListController', ['$scope', 'Results', IssueListController]);
+
+function IssueListController($scope, Results) {
+  Results.query()
+    .$promise.then(function (result) {
+      angular.forEach(result, function(index) {
+        var name = index.algorithm + '. ';
+        name += index.area + ', ';
+        name += '' + index.size + ', ' + index.step;
+        index.name = name;
+      });
+      $scope.issues = result;
+  });
+}
+\end{lstlisting}
+
+Контроллер общается с Сервисом, и передает данные в том же, или измененном формате в наш Вид через объект \$scope. Когда Вид обновлён, логика Контроллера также обновляется, и её можно передавать обратно на сервер через Сервис. Благодаря двухстороннему связыванию, любые изменения, внесенные в модель отражаются в представлении, любые изменения, которые происходят в представлении отражаются в модели. Остальные контроллеры идентичны контроллерам в Backbone.js и были адаптированы под использование в AngularJS. Исходные коды отображены в приложении В.
+
+
