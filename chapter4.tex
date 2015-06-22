@@ -84,10 +84,12 @@ Apache Cordova настраивает проект как раз таким об
 \begin{lstlisting}
   cordova build android
 \end{lstlisting}
+
 Процесс сборки отображен на рисунке \ref{cordova_build}. Сборка релизной версии осуществляется командой:
 \begin{lstlisting}
   cordova build --release android
 \end{lstlisting}
+
 \begin{figure}[ht]
 \center\includegraphics[width=0.7\textwidth]{cordova_build}
 \caption{Сборка проекта Apache Cordova}\label{cordova_build}
@@ -99,6 +101,7 @@ Apache Cordova настраивает проект как раз таким об
 \begin{lstlisting}
 keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000.
 \end{lstlisting}
+
 В процессе выполнения которой потребуется ввести пароль для keystore, по умолчанию пароль --- \textit{android}. Затем требуется ввести ответы на ключевые вопросы вроде: ФИО, организация, город, регион, страна. Далее подтверждаем введённые данные и вводим пароль для ключа, по умолчанию он androiddebugkey\cite{android:publish}.
 
 Ключ готов, теперь необходимо подписать этим ключом приложение, для этого необходимо поместить неподписанное приложение в ту же папку где и ключ, затем выполнить подписание при помощи утилиты \textit{jarsigner}. Для этого необходимо выполнить следующую команду: 
