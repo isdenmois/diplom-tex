@@ -110,13 +110,13 @@ HTML отлично подходит для описания статичных 
 var sampleModel = Backbone.Model.extend({
     url: '/path/to/data',
     defaults: {
-      // Значения атрибутoв nо-умолчанию
+      // Defaults attributes values
     },
     initialize: function () {
-      // Конструктоp модели
+      // Model constructor
     },
     someMethod: function() {
-      // Телo метода
+      // Methods body
     }
 });
 \end{lstlisting}
@@ -128,7 +128,7 @@ var sampleCollection = Backbone.Collection.extend({
     url: '/path/to/data',
     model: sampleModel,
     initialize: function () {
-      // Конструктоp  модели
+      // Model constructor
     },
     filteredByName: function(name) {
       return this.filter(function (model) {
@@ -145,7 +145,7 @@ var sampleView = Backbone.View.extend({
     tagName: 'div',
     className: 'someDiv',
     initialize: function() {
-      // Конструктоp представления
+      // View constructor
       this.model.on('change', this.render, this);
     },
     render: function () {
@@ -160,17 +160,17 @@ var sampleView = Backbone.View.extend({
 такой единицы данных представлена ниже\cite{backdoc}:
 \begin{lstlisting}[basicstyle=\normalsize]
 var sampleRouter = Backbone.Router.extend({
-    routes: { // Словарь  pоутоv и aкшенов
+    routes: {
       'index': 'index',
       'search/:id': 'search',
       initialize: function () {
-        // Конструктоp  pоута
+        // Router constructor
       },
       index: function () {
-        // Телo  метода
+        // Methods body
       },
       search: function (id) {
-        // Телo  метода
+        // Methods body
       }
 });
 \end{lstlisting}
